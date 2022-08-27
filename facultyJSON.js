@@ -3,7 +3,7 @@ let facultyJSONarray = [
     {
         "lName": "Olmanson",
         "fName": "Justin",
-        "NUID": 78069484,
+        "NUID": 1234,
         "Email": "jolmanson2@unl.edu",
         "program": "INLT",
         "department": "TLTE",
@@ -74,7 +74,7 @@ let facultyJSONarray = [
     {
         "lName": "Trainin",
         "fName": "Guy",
-        "NUID": 12345678,
+        "NUID": 1234,
         "Email": "gtrainin2@unl.edu",
         "program": "TEAC",
         "department": "TLTE",
@@ -90,7 +90,7 @@ let facultyJSONarray = [
     {
         "lName": "Kiramba",
         "fName": "Lydiah",
-        "NUID": 12345678,
+        "NUID": 1234,
         "Email": "lkiramba2@unl.edu",
         "program": "TEAC",
         "department": "TLTE",
@@ -106,7 +106,7 @@ let facultyJSONarray = [
     {
         "lName": "Twomey",
         "fName": "Robert",
-        "NUID": 12345678,
+        "NUID": 1234,
         "Email": "rtwomey@unl.edu",
         "program": "CEMA",
         "department": "CEMA",
@@ -122,7 +122,7 @@ let facultyJSONarray = [
     {
         "lName": "Reeves",
         "fName": "Jenelle",
-        "NUID": 12345678,
+        "NUID": 1234,
         "Email": "jreeves2@unl.edu",
         "program": "TEAC",
         "department": "TLTE",

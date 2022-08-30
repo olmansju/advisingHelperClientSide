@@ -10,4 +10,8 @@ function displayResults(theReturnedJSON){
     document.getElementById("studentDBresults").innerHTML = `<PRE><CODE> ${theReturnedJSON} </CODE></PRE>`;
 }
 
+function testIt(){
+    return 'wow';
+}
+
 getStudentCollectionFromMongoDB();

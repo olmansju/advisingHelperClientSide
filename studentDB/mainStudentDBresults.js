@@ -11,7 +11,7 @@ function displayResults(theReturnedJSON){
 }
 
 function testIt(){
-    return 'wow';
+    return 'wow wow';
 }
 
 getStudentCollectionFromMongoDB();

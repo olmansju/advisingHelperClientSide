@@ -1,7 +1,7 @@
 // references mongoDBtraffic.js function
 
 function displayResults(theReturnedJSON){
-    document.getElementById("facultyDBresults").innerHTML = `<PRE><CODE> ${theReturnedJSON} </CODE></PRE>`;
+    document.getElementById("facultyDBresults").innerHTML = `<PRE><CODE> ${theReturnedJSON.payload} </CODE></PRE>`;
 }
 
 fetchFacultyGETmongoDB();

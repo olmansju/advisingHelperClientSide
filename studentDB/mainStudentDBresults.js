@@ -1,13 +1,12 @@
-//bring back all the records
+// references mongoDBtraffic.js function
 
-async function getStudentCollectionFromMongoDB(){
-    const sentResponse = await fetch('/studentDB');
-    const returnedData = await sentResponse.json();
-    displayResults(returnedData);
-}
-
-function displayResults(theReturnedJSON){
-    document.getElementById("studentDBresults").innerHTML = `<PRE><CODE> ${theReturnedJSON} </CODE></PRE>`;
+function displayStudentResults(theReturnedJSON){
+    console.log('displayStudentResults', theReturnedJSON.payload);
+    let payload = theReturnedJSON.payload;
+    document.getElementById("studentDBresults").innerHTML += `Student data documents are:<br>`;
+    payload.forEach(record => {
+        document.getElementById("studentDBresults").innerHTML += `<br> ${JSON.stringify(record)} <br>`;
+    })
 }
 
 fetchStudentGETmongoDB();

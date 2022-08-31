@@ -12,18 +12,17 @@ async function fetchFacultyGETmongoDB(){
     if (!response.ok){ console.log('Fetch error: ', response.status);}
     const facultyGETinJSONformat = await response.json();
     console.log(response, facultyGETinJSONformat);
-    // <br>`${JSON.stringify(facultyGETinJSONformat)}`;
     displayResults(facultyGETinJSONformat); //references function in mainFacultyDBresults.js
 }
 
 async function fetchStudentGETmongoDB(){
     console.log('fetchStudentGETmongoDB called');
+    document.getElementById('studentDBresults').innerText = '';
     const response = await fetch(studentGETendpoint);
     if (!response.ok){ console.log('Fetch error: ', response.status);}
     const studentGETinJSONformat = await response.json();
     console.log(response, studentGETinJSONformat);
-    // <br>`${JSON.stringify(studentGETinJSONformat)}`;
-    displayResults(studentGETinJSONformat);
+    displayStudentResults(studentGETinJSONformat); //references function in mainStudentDBresults.js
 }
 
 async function fetchFacultyPOSTmongoDB(){

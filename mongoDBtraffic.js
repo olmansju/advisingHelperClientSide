@@ -7,22 +7,20 @@ let studentPOSTendpoint = "https://us-east-1.aws.data.mongodb-api.com/app/adviso
 
 async function fetchFacultyGETmongoDB(){
     console.log('fetchFacultyGETmongoDB called');
-    document.getElementById('facultyDBresults').innerText = '';
     const response = await fetch(facultyGETendpoint);
     if (!response.ok){ console.log('Fetch error: ', response.status);}
     const facultyGETinJSONformat = await response.json();
     console.log(response, facultyGETinJSONformat);
-    displayResults(facultyGETinJSONformat); //references function in mainFacultyDBresults.js
+    return facultyGETinJSONformat.payload;
 }
 
 async function fetchStudentGETmongoDB(){
     console.log('fetchStudentGETmongoDB called');
-    document.getElementById('studentDBresults').innerText = '';
     const response = await fetch(studentGETendpoint);
     if (!response.ok){ console.log('Fetch error: ', response.status);}
     const studentGETinJSONformat = await response.json();
     console.log(response, studentGETinJSONformat);
-    displayStudentResults(studentGETinJSONformat); //references function in mainStudentDBresults.js
+    return studentGETinJSONformat.payload;
 }
 
 async function fetchFacultyPOSTmongoDB(){

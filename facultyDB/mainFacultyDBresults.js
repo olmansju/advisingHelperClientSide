@@ -1,12 +1,13 @@
 // references mongoDBtraffic.js function
 
 function displayResults(theReturnedJSON){
-    console.log('displayResults', theReturnedJSON.payload);
-    let payload = theReturnedJSON.payload;
+    console.log('displayResults', theReturnedJSON);
+    document.getElementById('facultyDBresults').innerText = '';
     document.getElementById("facultyDBresults").innerHTML += `Faculty data documents are:<br>`;
-    payload.forEach(record => {
+    theReturnedJSON.forEach(record => {
         document.getElementById("facultyDBresults").innerHTML += `<br> ${JSON.stringify(record)} <br>`;
     })
 }
 
-fetchFacultyGETmongoDB();
+let facultyJSONarray = fetchFacultyGETmongoDB();
+displayResults(facultyJSONarray);

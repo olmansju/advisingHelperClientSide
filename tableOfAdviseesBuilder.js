@@ -10,11 +10,11 @@ function buildAdviseeTable(data){
         return (
             `<tr>
              <td><img class="profile" src=images/${student.imageFile} onclick="buildEditStudent(${student.adviseeID})"></td>
-             <td>${student.fName} ${student.lName}<br><br><a target="_blank" rel="noopener noreferrer"  href=${student.portfolioURL}>portfolio</a></td>
+             <td>${student.fName} ${student.lName}<br><br>${checkPortfolio(student.portfolioURL)}</td>
              <td> 
              <a href="mailto:${student.email}">email</a>
              </td>
-             <td>${student.program} ${student.researchInterests.join(", ")} ${checkPortfolio(student.portfolioURL)}</td>
+             <td>${student.program} ${student.researchInterests.join(", ")}</td>
              <td>${student.funding}</td>
              <td>${unlDateToReadableDate(student.status.admitted)}</td>
              <td>${student.committee.join(", ")}</td>
@@ -54,7 +54,7 @@ function buildMiddleLeftCompositeReport(){
 
 function checkPortfolio(portfolioInfo){
     if (portfolioInfo.length > 4){
-        return `<a target="_blank" rel="noopener noreferrer" href=${portfolioInfo}>Portfolio</a>`
+        return `<a target="_blank" rel="noopener noreferrer" href=${portfolioInfo}>portfolio</a>`
     } else {
         return "";
     }

@@ -1,13 +1,15 @@
 // references mongoDBtraffic.js function
+let facultyJSONarray;
 
-function displayResults(theReturnedJSON){
-    console.log('displayResults', theReturnedJSON);
+async function displayResults(){
+    facultyJSONarray = await fetchFacultyGETmongoDB();
+    console.log('displayResults', facultyJSONarray);
     document.getElementById('facultyDBresults').innerText = '';
     document.getElementById("facultyDBresults").innerHTML += `Faculty data documents are:<br>`;
-    theReturnedJSON.forEach(record => {
+    facultyJSONarray.forEach(record => {
         document.getElementById("facultyDBresults").innerHTML += `<br> ${JSON.stringify(record)} <br>`;
     })
 }
 
-let facultyJSONarray = fetchFacultyGETmongoDB();
-displayResults(facultyJSONarray);
+
+displayResults();

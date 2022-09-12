@@ -82,7 +82,7 @@ async function loginDBattempt(localStorageObject){
             await setLocalStorage(storageObject);
         }
     } else {
-        loggedInCheck("your login credentials do not match the database please try again or register")
+        loggedInCheck("your login credentials do not match the database please try again or register");
     }
 }
 
@@ -145,7 +145,7 @@ function displayAdvisor (){
       </div>`;
     document.getElementById("topLeft").innerHTML = `AdvisingHelper<br><br><div id="logout" > <button id="facultyLogout" > log out </button></div>`;
     document.getElementById("facultyLogout").addEventListener("click", clearLocalStorage);
-    //let adviseesArray = processAdvisees(facultyAdviseesArray); //array from studentJSON.js
+    let adviseesArray = processAdvisees(facultyAdviseesArray); //array from studentJSON.js
     buildAdviseeTable(adviseesArray);
 }
 

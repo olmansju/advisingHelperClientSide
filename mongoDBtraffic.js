@@ -2,7 +2,7 @@
 
 let facultyGETendpoint = "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/facultyGET";
 let studentGETendpoint = "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/studentGET";
-let facultyPOSTloginEndpoint = "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/facultyPOSTlogin";
+let facultyPOSTloginEndpoint = "/faculty";// atlas endpoint "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/facultyPOSTlogin";
 let studentPOSTendpoint = "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/studentPOST";
 
 async function fetchFacultyGETmongoDB(){

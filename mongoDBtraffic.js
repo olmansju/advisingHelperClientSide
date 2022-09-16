@@ -31,7 +31,7 @@ async function fetchStudentGETmongoDB(searchParams = null){
 
 async function facultyLoginMongoDB(lStorageObject){
     console.log('facultyLoginMongoDB called', lStorageObject);
-    let fPOSTplusQuery = `${facultyPOSTloginEndpoint}?UID=${lStorageObject.UID}&email=${lStorageObject.email}`;
+    let fPOSTplusQuery = `${facultyPOSTloginEndpoint}?qField=NUID&qValue=${lStorageObject.UID}&qField2=Email&qValue2=${lStorageObject.email}`;
     let theReturn;
         try {
             const response = await fetch(fPOSTplusQuery, {
@@ -41,8 +41,10 @@ async function facultyLoginMongoDB(lStorageObject){
                 },
                 body: JSON.stringify({
                     // your expected POST request payload goes here
-                    email: lStorageObject.email,
-                    UID: lStorageObject.UID
+                    qField: "Email",
+                    qValue: lStorageObject.email,
+                    qField2: "NUID",
+                    qValue2: lStorageObject.UID
                 })
             });
             const data = await response.json();

@@ -2,7 +2,6 @@
 
 let facultyGETendpoint = "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/facultyGET";
 let studentGETendpoint = "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/studentGET";
-let facultyPOSTloginEndpoint = "/faculty";// atlas endpoint "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/facultyPOSTlogin";
 let studentPOSTendpoint = "https://us-east-1.aws.data.mongodb-api.com/app/advisorhelperapp-aurna/endpoint/studentPOST";
 
 async function fetchFacultyGETmongoDB(){
@@ -18,23 +17,22 @@ async function fetchStudentGETmongoDB(searchParams = null){
     console.log('fetchStudentGETmongoDB called');
     let URLplusQuery;
     if (searchParams){
-        URLplusQuery = studentGETendpoint + searchParams;
+        URLplusQuery = '/student' + searchParams;
     } else {
-        URLplusQuery = studentGETendpoint;
+        URLplusQuery = '/student';
     }
     const response = await fetch(URLplusQuery);
     if (!response.ok){ console.log('Fetch error: ', response.status);}
     let studentGETinJSONformat = await response.json();
-    console.log('response', studentGETinJSONformat.payload);
-    return studentGETinJSONformat.payload;
+    console.log('response', studentGETinJSONformat);
+    return studentGETinJSONformat;
 }
 
 async function facultyLoginMongoDB(lStorageObject){
     console.log('facultyLoginMongoDB called', lStorageObject);
-    let fPOSTplusQuery = `${facultyPOSTloginEndpoint}?qField=NUID&qValue=${lStorageObject.UID}&qField2=Email&qValue2=${lStorageObject.email}`;
     let theReturn;
         try {
-            const response = await fetch(fPOSTplusQuery, {
+            const response = await fetch('/faculty', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -54,7 +52,7 @@ async function facultyLoginMongoDB(lStorageObject){
         } catch(error) {
             // enter your logic for when there is an error (ex. error toast)
             console.log(error)
-            theReturn =  'oops something went wrong w asyncPostCall';
+            theReturn =  '';
     }
     return theReturn;
 }

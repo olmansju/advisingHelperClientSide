@@ -66,8 +66,8 @@ async function loginDBattempt(localStorageObject){
     console.log('loginDBattempt passed param', localStorageObject);
     let theDBresults = await facultyLoginMongoDB(localStorageObject);
     console.log('loginDBattempt theDBresults', theDBresults);
-    if (theDBresults.payload.facultyObject.length > 0){
-        facultyObject = theDBresults.payload.facultyObject[0];
+    if (theDBresults){
+        facultyObject = theDBresults[0];
         let advisorIDqueryInStudent = `?field=advisor&value=${facultyObject._id}`;
         console.log("facultyObject", facultyObject, "_id", facultyObject._id, "query", advisorIDqueryInStudent);
         facultyAdviseesArray = await fetchStudentGETmongoDB(advisorIDqueryInStudent);

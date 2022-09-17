@@ -68,7 +68,7 @@ async function loginDBattempt(localStorageObject){
     console.log('loginDBattempt theDBresults', theDBresults);
     if (theDBresults){
         facultyObject = theDBresults[0];
-        let advisorIDqueryInStudent = `?field=advisor&value=${facultyObject._id}`;
+        let advisorIDqueryInStudent = `?qField=advisor&qValue=${facultyObject._id}`;
         console.log("facultyObject", facultyObject, "_id", facultyObject._id, "query", advisorIDqueryInStudent);
         facultyAdviseesArray = await fetchStudentGETmongoDB(advisorIDqueryInStudent);
         console.log('facultyAdviseesArray length is:', facultyAdviseesArray.length);

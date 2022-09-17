@@ -18,8 +18,10 @@ async function fetchStudentGETmongoDB(searchParams = null){
     let URLplusQuery;
     if (searchParams){
         URLplusQuery = '/student' + searchParams;
+        console.log('fetchStudentGETmongoDB called w params:', searchParams);
     } else {
         URLplusQuery = '/student';
+        console.log('fetchStudentGETmongoDB called w NO params');
     }
     const response = await fetch(URLplusQuery);
     if (!response.ok){ console.log('Fetch error: ', response.status);}

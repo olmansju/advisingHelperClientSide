@@ -58,6 +58,10 @@ function setLocalStorage(fLocalStorageObject){
 function clearLocalStorage(){
     localStorage.removeItem("advisingHelperFacultyUserInfo");
     loggedInCheck('You are logged out');
+    facultyLocalStorageObject = (function () { return; })();
+    facultyObject = (function () { return; })();
+    facultyAdviseesArray = (function () { return; })();
+    newArray = [];
 }
 
 // #3
@@ -91,7 +95,7 @@ function facultyLoginPrep(){
     let UID = document.getElementById("UID").value;
     let email = document.getElementById("email").value;
     if (UID.length > 3 && email.length > 5) {
-        loginDBattempt({"UID": UID, "email": email, "inLocalStorage": 0});
+        loginDBattempt({"UID": Number(UID), "email": email, "inLocalStorage": 0});
     }
 }
 

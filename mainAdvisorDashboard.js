@@ -70,7 +70,7 @@ async function loginDBattempt(localStorageObject){
     console.log('loginDBattempt passed param', localStorageObject);
     let theDBresults = await facultyLoginMongoDB(localStorageObject);
     console.log('loginDBattempt theDBresults', theDBresults);
-    if (theDBresults){
+    if (theDBresults[0]){
         facultyObject = theDBresults[0];
         let advisorIDqueryInStudent = `?qField=advisor&qValue=${facultyObject._id}`;
         console.log("facultyObject", facultyObject, "_id", facultyObject._id, "query", advisorIDqueryInStudent);
@@ -78,6 +78,8 @@ async function loginDBattempt(localStorageObject){
         console.log('facultyAdviseesArray length is:', facultyAdviseesArray.length);
         if (facultyAdviseesArray.length > 0){
             displayAdvisor(facultyAdviseesArray);
+            let adviseesArray = processAdvisees(facultyAdviseesArray); //array from studentJSON.js
+            buildAdviseeTable(adviseesArray);
         } else {
             console.log('you have no advisees, either add some or go enjoy a coffee');
         }
@@ -96,6 +98,8 @@ function facultyLoginPrep(){
     let email = document.getElementById("email").value;
     if (UID.length > 3 && email.length > 5) {
         loginDBattempt({"UID": Number(UID), "email": email, "inLocalStorage": 0});
+    } else {
+        loggedInCheck("is that really your University ID and email address?");
     }
 }
 
@@ -147,10 +151,8 @@ function displayAdvisor (){
             <div id="middleRightFormDiv"></div>
           </div>
       </div>`;
-    document.getElementById("topLeft").innerHTML = `AdvisingHelper<br><br><div id="logout" > <button id="facultyLogout" > log out </button></div>`;
+    document.getElementById("topLeft").innerHTML = `AdvisingHelper<br><br>${facultyObject.fName} ${facultyObject.lName}<div id="logout" > <button id="facultyLogout" > log out </button></div>`;
     document.getElementById("facultyLogout").addEventListener("click", clearLocalStorage);
-    let adviseesArray = processAdvisees(facultyAdviseesArray); //array from studentJSON.js
-    buildAdviseeTable(adviseesArray);
 }
 
 // displayAdvisor();

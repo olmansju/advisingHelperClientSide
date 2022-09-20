@@ -9,7 +9,7 @@ function processAdvisees(arrayOfAdvisees){
                                   obj.Email,
                                   obj.portfolioURL,
                                   obj.dept_funding,
-                     ["technology", "learning"], [obj.current],
+                     ["technology", "learning"], obj.current,
                      [],
                                   obj.committee_members_doc.split(','),
                                   obj.advisor,

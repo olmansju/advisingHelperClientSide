@@ -58,7 +58,7 @@ function setLocalStorage(fLocalStorageObject){
 function clearLocalStorage(){
     localStorage.removeItem("advisingHelperFacultyUserInfo");
     loggedInCheck('You are logged out');
-    facultyLocalStorageObject = (function () { return; })();
+    facultyLocalStorageObject = (function () { return; })(); //this resets these variables
     facultyObject = (function () { return; })();
     facultyAdviseesArray = (function () { return; })();
     newArray = [];

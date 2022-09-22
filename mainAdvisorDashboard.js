@@ -82,6 +82,7 @@ async function loginDBattempt(localStorageObject){
             buildAdviseeTable(adviseesArray);
         } else {
             console.log('you have no advisees, either add some or go enjoy a coffee');
+            document.getElementById("logStatus").innerText = "you have no advisees and so cannot log in yet";
         }
         if (facultyLocalStorageObject.inLocalStorage == 0 && facultyObject.NUID != null && facultyObject.Email != null){
             let storageObject = {"UID": facultyObject.NUID, "email": facultyObject.Email, "inLocalStorage": 1};

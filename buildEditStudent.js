@@ -1,9 +1,9 @@
 //builds an edit student section
 let thisStudent;
 
-function buildEditStudent(NUid){
+function buildEditStudent(NUid, lName){
     console.log('buildEditStudent function called', 'NUid value', NUid);
-    thisStudent = newArray.find(x => x.adviseeID === NUid);
+    thisStudent = newArray.find(x => (x.adviseeID === NUid && x.lName === lName));
     console.log('thisStudent', thisStudent);
     document.getElementById("middleRightFormDiv").innerHTML = `
     <p id="formDirections"> Editing info for <b>${thisStudent.fName} ${thisStudent.lName}</b>... </p>

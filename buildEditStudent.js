@@ -108,3 +108,7 @@ function compareFormFieldsToObjectValues(){
         updateAdvisee(thisStudent.adviseeID, changedFields);
     }
 }
+
+function updateAdvisee(id, changedFieldsObject){
+    // send id and changedFieldsObject to server side for updating
+}

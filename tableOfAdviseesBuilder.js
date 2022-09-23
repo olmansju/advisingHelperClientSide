@@ -9,7 +9,7 @@ function buildAdviseeTable(data){
     const tableData = sortedData.map(function(student){
         return (
             `<tr>
-             <td><img class="profile" src=images/${student.imageFile} onclick="buildEditStudent(${student.adviseeID}, ${student.lName})"></td>
+             <td><img class="profile" src=images/${student.imageFile} onclick="buildEditStudent(${student.adviseeID}, '${student.lName}')"></td>
              <td>${student.fName} ${student.lName}<br><br>${checkPortfolio(student.portfolioURL)}</td>
              <td> 
              <a href="mailto:${student.email}">email</a>

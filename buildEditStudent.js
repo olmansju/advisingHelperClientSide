@@ -2,8 +2,8 @@
 let thisStudent;
 
 function buildEditStudent(NUid, lName){
-    console.log('buildEditStudent function called', 'NUid value', NUid);
-    thisStudent = newArray.find(x => (x.adviseeID === NUid && x.lName === lName));
+    console.log('buildEditStudent function called', 'NUid value', NUid, 'lName value', lName);
+    thisStudent = newArray.find(x => x.adviseeID === NUid && x.lName === lName);
     console.log('thisStudent', thisStudent);
     document.getElementById("middleRightFormDiv").innerHTML = `
     <p id="formDirections"> Editing info for <b>${thisStudent.fName} ${thisStudent.lName}</b>... </p>
@@ -65,42 +65,46 @@ document.addEventListener('click', function(event){
 })
 
 function compareFormFieldsToObjectValues(){
+    let changedFields = {};
 
     let emailField = document.forms[0].querySelector('input[name="email"]').value;
-    const emailUpdate = (thisStudent.email !== emailField) ? (thisStudent.email = emailField) : "same";
+    const emailUpdate = (thisStudent.email !== emailField) ? (thisStudent.email = emailField, changedFields['email'] = emailField) : "same";
 
     let researchField = document.forms[0].querySelector('input[name="interests"]').value.split(',');
-    const researchUpdate = (thisStudent.researchInterests !== researchField) ? (thisStudent.researchInterests = researchField) : "same";
+    const researchUpdate = (thisStudent.researchInterests !== researchField) ? (thisStudent.researchInterests = researchField, changedFields['researchInterests'] = researchField) : "same";
 
     let fundingField = document.forms[0].querySelector('input[name="funding"]').value;
-    const fundingUpdate = (thisStudent.funding !== fundingField) ? (thisStudent.funding = fundingField) : "same";
+    const fundingUpdate = (thisStudent.funding !== fundingField) ? (thisStudent.funding = fundingField, changedFields['funding'] = fundingField) : "same";
 
     let committeeField = document.forms[0].querySelector('input[name="committee"]').value.split(',');
-    const committeeUpdate = (thisStudent.committee !== committeeField) ? (thisStudent.committee = committeeField) : "same";
+    const committeeUpdate = (thisStudent.committee !== committeeField) ? (thisStudent.committee = committeeField, changedFields['committee'] = committeeField) : "same";
 
     let posField = document.forms[0].querySelector('input[name="PoS"]').value;
-    const posUpdate = (thisStudent.PoS !== posField) ? (thisStudent.PoS = posField) : "same";
+    const posUpdate = (thisStudent.PoS !== posField) ? (thisStudent.PoS = posField, changedFields['PoS'] = posField) : "same";
 
     let coursesField = document.getElementById("courses").value.split(',');
-    const coursesUpdate = (thisStudent.status.courses_taken !== coursesField) ? (thisStudent.status.courses_taken = coursesField) : "same";
+    const coursesUpdate = (thisStudent.status.courses_taken !== coursesField) ? (thisStudent.status.courses_taken = coursesField, changedFields['courses_taken'] = coursesField) : "same";
 
     let pilot_studyField = document.forms[0].querySelector('input[name="pilot_study"]').value;
-    const pilot_studyUpdate = (thisStudent.status.pilot_study !== pilot_studyField) ? (thisStudent.status.pilot_study = pilot_studyField) : "same";
+    const pilot_studyUpdate = (thisStudent.status.pilot_study !== pilot_studyField) ? (thisStudent.status.pilot_study = pilot_studyField, changedFields['pilot_study'] = pilot_studyField) : "same";
 
     let compsField = document.forms[0].querySelector('input[name="comps"]').value;
-    const compsUpdate = (thisStudent.status.comps !== compsField) ? (thisStudent.status.comps = compsField) : "same";
+    const compsUpdate = (thisStudent.status.comps !== compsField) ? (thisStudent.status.comps = compsField, changedFields['comps'] = compsField) : "same";
 
     let proposalField = document.forms[0].querySelector('input[name="proposal"]').value;
-    const proposalUpdate = (thisStudent.status.proposal !== proposalField) ? (thisStudent.status.proposal = proposalField) : "same";
+    const proposalUpdate = (thisStudent.status.proposal !== proposalField) ? (thisStudent.status.proposal = proposalField, changedFields['proposal'] = proposalField) : "same";
 
     let dissertationField = document.forms[0].querySelector('input[name="dissertation"]').value;
-    const dissertationUpdate = (thisStudent.status.dissertation !== dissertationField) ? (thisStudent.status.dissertation = dissertationField) : "same";
+    const dissertationUpdate = (thisStudent.status.dissertation !== dissertationField) ? (thisStudent.status.dissertation = dissertationField, changedFields['dissertation'] = dissertationField) : "same";
 
     let graduationField = document.forms[0].querySelector('input[name="graduation"]').value;
-    const graduationUpdate = (thisStudent.status.graduation !== graduationField) ? (thisStudent.status.graduation = graduationField) : "same";
+    const graduationUpdate = (thisStudent.status.graduation !== graduationField) ? (thisStudent.status.graduation = graduationField, changedFields['graduation'] = graduationField) : "same";
 
     let imageURLField = document.forms[0].querySelector('input[name="imageURL"]').value;
-    const imageURLUpdate = (thisStudent.imageURL !== imageURLField) ? (thisStudent.imageURL = imageURLField) : "same";
+    const imageURLUpdate = (thisStudent.imageURL !== imageURLField) ? (thisStudent.imageURL = imageURLField, changedFields['imageURL'] = imageURLField) : "same";
 
-    buildAdviseeTable(newArray);
+    if (Object.keys(changedFields).length > 0){
+        buildAdviseeTable(newArray);
+        updateAdvisee(thisStudent.adviseeID, changedFields);
+    }
 }

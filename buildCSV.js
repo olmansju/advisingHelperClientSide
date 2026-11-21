@@ -220,6 +220,6 @@ function buildAdviseeObjectsFromCSVfile(fileName){
 }
 
 let sampleCSV = `lName,fName,mName,NUID,Email,US,Citizen,prog_status,admitted,degree,primary_plan,minor,first_grad_enrolled,lastest_enrolled,latest_grad_eligible,gs_holds,dept_funding,advisor,committee_members_doc,PoS,candidacy,examForm,diss_deposited,expiration,cr_hrs_taken,courses_taken,imageURL
-Al Shorman,Deef Allah,M Y,46892717,dalshorman2@huskers.unl.edu,Non-US,JOR,Active,1218,D,EDUS-PHD (INLT-SPC),,1201,1228,1228,,"$16,000 GA, $1,500 Fellowships",Justin D Olmanson,"Al Steckelberg, June Griffin, Guy Trainin",2022/05/04,,,,2030/05/01,66 hours,"TEAC 800, TEAC 882B, TEAC 882D, TEAC 801, TEAC 880A, TEAC 880P, TEAC 859, TEAC 860, ENTO 830, TEAC 889, TEAC 959, TEAC 960, EDPS 800, EDPS 859, TEAC 995A, EDPS 870, EDPS 941, TEAC 880E, TEAC 895, TEAC 999, EDPS 942, TEAC 905, TEAC 995","deef.jpg"`
+Example,Student,A,00000000,student@example.edu,US,USA,Active,1218,D,EDUS-PHD (INLT-SPC),,1218,1228,1228,,Example funding,Justin D Olmanson,Example committee,2022/01/01,,,,2030/01/01,45 hours,"TEAC 000, TEAC 001",blank.gif`
 
 buildAdviseeObjectsFromCSVfile("Olmanson_Fall22_Advisees_CSV.csv");
